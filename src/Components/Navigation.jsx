@@ -1,21 +1,28 @@
 // Back & Next button navigation
-import React, {useState} from 'react';
+import React from 'react';
 
 function Navigation(props) {
-    const [disableNext, setDisableNext] = useState(false);
+    const currentNum = props.currentNum;
+    const numQuestions = props.numQuestions;
+    const disableNext = props.disableNext[currentNum];
 
     return (
       <div className="navigation">
         {/* disable the back button for the first question */}
-            {props.currentNum === 1 ? null :
+            {currentNum === 1 ? null :
             <button
                 type="button"
                 className="back"
                 onClick={() => { props.click(-1)}}>Back</button>
             }
-        {/* if the current question is not the last question, display the Next button */}
-        {props.currentNum === props.numQuestions ?
-            <input type="submit" id="submit" value="Submit" className="submit" /> :
+        {/* if the current question is the last question, display the Submit button */}
+        {currentNum === numQuestions ?
+            <input
+                id="submit"
+                type="submit"
+                value="Submit"
+                className="submit"
+                disabled={disableNext ? true : false} /> :
             <button
                 // if the current question is unanswered, disable the next button
                 disabled={disableNext ? true : false}

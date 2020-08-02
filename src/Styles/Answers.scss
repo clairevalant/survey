@@ -3,3 +3,7 @@
 label {
     display: block;
 }
+
+input.visuallyHidden {
+    pointer-events: none;
+}

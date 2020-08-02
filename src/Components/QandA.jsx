@@ -29,7 +29,7 @@ function QandA (props) {
             // instantiating the selections object
            for (const i in res) {
                setupSelections[i] = [];
-               setupDisableNext[i] = false;
+               setupDisableNext[i] = true;
            }
 
             // add question objects to state
@@ -47,41 +47,44 @@ function QandA (props) {
     };
 
     function handleInputClick(event) {
-        const newSelections = selections;
-        const newDisableNext = disableNext;
+        let newSelections = selections[currentNum];
+        let newDisableNext;
         const currentQ = questions[currentNum];
         const selectedAnswer = event.target.htmlFor;
 
-        console.log(selectedAnswer)
-
         // if multiple answers are allowed
-        if(currentQ.multiple && selectedAnswer) {
+        if(currentQ.multiple && typeof selectedAnswer !== undefined) {
             // add all answers to corresponding selections array
-            if (newSelections[currentNum].indexOf(selectedAnswer) === -1 || newSelections[currentNum] === []) {
-                newSelections[currentNum].push(selectedAnswer);
-                event.target.dataset.selected = "true";
-                newDisableNext[currentNum] = false;
+            if (newSelections.indexOf(selectedAnswer) === -1 || newSelections === []) {
+                newSelections.push(selectedAnswer);
+                newDisableNext = false;
             } else {
-                const location = newSelections[currentNum].indexOf(selectedAnswer);
-                newSelections[currentNum].splice(location, 1);
-                event.target.dataset.selected = "false";
-                newDisableNext[currentNum] = newSelections[currentNum].length === 0 ? true : false;
+                const location = newSelections.indexOf(selectedAnswer);
+                newSelections.splice(location, 1);
+                newDisableNext = newSelections.length === 0 ? true : false;
             }
         } else {
             // else add only the single selection
-            newSelections[currentNum] = selectedAnswer;
-            newDisableNext[currentNum] = false;
+            newSelections = selectedAnswer;
+            newDisableNext = false;
         }
 
-        console.log(newSelections);
-        // console.log(newDisableNext);
+        // set state
+        setSelections({
+            ...selections,
+            [currentNum]:newSelections
+        });
+        setDisableNext({
+            ...disableNext,
+            [currentNum]: newDisableNext
+        });
         
     }
 
     return (
       <form onSubmit={props.submit}>
       {/* render questions once returned from Firebase query */}
-      {currentNum && questions[currentNum] ? 
+      {currentNum && questions[currentNum] && selections[currentNum] ? 
         <div className={`card card${currentNum}`}>
             <Question
                 currentNum={currentNum}
