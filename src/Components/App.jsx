@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
-import QandA from './QandA'
 import ThankYou from './ThankYou';
+import QandA from './QandA'
 import '../style.scss';
 
 function App() {
   const [submitted, setSubmitted] = useState(false);
+
+  function updateSubmit() {
+    setSubmitted(true);
+  }
 
   return (
     <div className="App">
@@ -14,7 +18,7 @@ function App() {
         <ThankYou />
       ) : (
         // else render question sequence
-        <QandA submit={() => setSubmitted(true)} />
+        <QandA submit={updateSubmit} />
       )}
     </div>
   );

@@ -78,11 +78,18 @@ function QandA (props) {
             ...disableNext,
             [currentNum]: newDisableNext
         });
-        
+    };
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        const dbRef = firebase.database().ref();
+        dbRef.push(selections);
+
+        props.submit();
     }
 
     return (
-      <form onSubmit={props.submit}>
+      <form onSubmit={handleSubmit}>
       {/* render questions once returned from Firebase query */}
       {currentNum && questions[currentNum] && selections[currentNum] ? 
         <div className={`card card${currentNum}`}>

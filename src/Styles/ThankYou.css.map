@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,8BAA8B;AAE9B,AAAA,SAAS,CAAC;EACR,eAAe,EAAE,MAAM;CACxB",
+    "sources": [
+        "ThankYou.scss"
+    ],
+    "names": [],
+    "file": "ThankYou.css"
+}

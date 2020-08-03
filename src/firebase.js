@@ -2,14 +2,14 @@ import firebase from "firebase/app";
 import "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCiUh7mvdIJL2WFj1eBFh6xPvnWkkKqTVQ",
-  authDomain: "dot-health-questionnaire.firebaseapp.com",
-  databaseURL: "https://dot-health-questionnaire.firebaseio.com",
-  projectId: "dot-health-questionnaire",
-  storageBucket: "dot-health-questionnaire.appspot.com",
-  messagingSenderId: "288378327056",
-  appId: "1:288378327056:web:91f5b1983659a3d0ef7a95",
-  measurementId: "G-DNVENMFC4B"
+  apiKey: "AIzaSyCQi9PyVQDW38Tpf9gdXsDm1ZbKcNgAL4E",
+  authDomain: "questionnaire-83533.firebaseapp.com",
+  databaseURL: "https://questionnaire-83533.firebaseio.com",
+  projectId: "questionnaire-83533",
+  storageBucket: "questionnaire-83533.appspot.com",
+  messagingSenderId: "125821248028",
+  appId: "1:125821248028:web:4c70d9291fd1a1720875d9",
+  measurementId: "G-LPPQ367LH5"
 };
 firebase.initializeApp(firebaseConfig);
 

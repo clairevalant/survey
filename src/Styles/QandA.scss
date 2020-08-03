@@ -1,0 +1,57 @@
+// Question and Answers styles
+form {
+  align-items: center;
+}
+
+.card {
+  width: 50%;
+  display: flex;
+  max-width: 500px;
+  flex-direction: column;
+}
+
+// Question
+.question {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.question h2 {
+  margin-top: 0;
+  font-size: 3rem;
+  line-height: 1.5;
+  font-family: 'Metropolis Semi', sans-serif; 
+}
+
+// Answers styles
+
+li {
+  list-style-type: none;
+}
+
+label {
+    padding: 2rem;
+    margin: 0.5em 0;
+  display: block;
+  cursor: pointer;
+  display: unset;
+  border-radius: 7px;
+  box-shadow: 0 0 7px lightgrey;
+  transition: background-color 0.3s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+label:hover,
+label:active,
+label[data-selected = true] {
+  color: white;
+  background-color: $accentColour;
+}
+
+label[data-selected = true] {
+  box-shadow: 0 0 7px $accentColour;
+}
+
+input.visuallyHidden {
+    pointer-events: none;
+}

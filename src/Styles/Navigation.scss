@@ -1,1 +1,36 @@
 /* Back/Next navigation styles */
+@import './Variables.scss';
+
+.navigation {
+  display: flex;
+  margin-top: 0.5em;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card:first-of-type .buttons {
+  justify-content: flex-end;
+}
+
+button,
+.submit {
+  border: none;
+  color: white;
+  padding: 2rem 3rem;
+  border-radius: 50px;
+  background-color: $accentColour;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[disabled],
+input[disabled] {
+  background-color: $accentColourDisabled;
+}
+
+button:hover {
+  background-color: $accentColourHover;
+}
+
+button[disabled]:hover {
+  background-color: $accentColourDisabled;
+}
