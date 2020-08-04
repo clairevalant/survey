@@ -1,6 +1,6 @@
 // Question and Answers
 // separate out question and answers into individual components?
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import firebase from '../firebase';
 import Question from './Question';
 import Answers from './Answers';
@@ -89,31 +89,34 @@ function QandA (props) {
     }
 
     return (
-      <form onSubmit={handleSubmit}>
-      {/* render questions once returned from Firebase query */}
-      {currentNum && questions[currentNum] && selections[currentNum] ? 
-        <div className={`card card${currentNum}`}>
-            <Question
-                currentNum={currentNum}
-                currentQ={questions[currentNum]} />
-            <Answers
-                currentNum={currentNum}
-                selections={selections}
-                click={handleInputClick}
-                multiple={questions[currentNum].multiple}
-                currentQAnswers={questions[currentNum].answers} />
-            <Navigation
-                currentNum={currentNum}
-                selections={selections}
-                disableNext={disableNext}
-                numQuestions={numQuestions}
-                click={handleNavigationClick} />
+        <Fragment>
+            <form onSubmit={handleSubmit}>
+            {/* render questions once returned from Firebase query */}
+            {currentNum && questions[currentNum] && selections[currentNum] ? 
+                <Fragment>
+                    <Question
+                        currentNum={currentNum}
+                        currentQ={questions[currentNum]}
+                        multiple={questions[currentNum].multiple} />
+                    <Answers
+                        currentNum={currentNum}
+                        selections={selections}
+                        click={handleInputClick}
+                        multiple={questions[currentNum].multiple}
+                        currentQAnswers={questions[currentNum].answers} />
+                    <Navigation
+                        currentNum={currentNum}
+                        selections={selections}
+                        disableNext={disableNext}
+                        numQuestions={numQuestions}
+                        click={handleNavigationClick} />
+             </Fragment>
+                : null}
+            </form>
             <ProgressBar
-                currentNum={currentNum} 
+                currentNum={currentNum}
                 numQuestions={numQuestions} />
-        </div>
-        : null}
-      </form>
+        </Fragment>
     );
 }
 

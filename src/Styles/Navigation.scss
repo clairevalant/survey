@@ -1,11 +1,18 @@
 /* Back/Next navigation styles */
-@import './Variables.scss';
 
 .navigation {
   display: flex;
   margin-top: 0.5em;
   flex-direction: row;
   justify-content: space-between;
+  position: absolute;
+  width: calc(80vw / 2);
+  max-width: 700px;
+  bottom: calc(50px + 4rem + 50px);
+  
+  &.first {
+    justify-content: flex-end;
+  }
 }
 
 .card:first-of-type .buttons {
@@ -17,7 +24,6 @@ button,
   border: none;
   color: white;
   padding: 2rem 3rem;
-  border-radius: 50px;
   background-color: $accentColour;
   transition: background-color 0.2s ease-in-out;
 }
@@ -28,7 +34,7 @@ input[disabled] {
 }
 
 button:hover {
-  background-color: $accentColourHover;
+  background-color: $accentColour2;
 }
 
 button[disabled]:hover {

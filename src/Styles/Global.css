@@ -201,9 +201,7 @@ body {
 
 body,
 #root,
-.App,
-form,
-.thankyou {
+.App {
   height: 100vh;
 }
 

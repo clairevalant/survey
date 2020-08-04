@@ -7,8 +7,7 @@ function Answers(props) {
     const answers = Object.entries(props.currentQAnswers);
 
   return (
-    <Fragment>
-        <p className="instruction">{multiple ? "Select all that apply." :"Select one."}</p>
+    <div className="answers">
         {
             answers.map(a => {
                 return (
@@ -23,6 +22,7 @@ function Answers(props) {
                     <label
                         htmlFor={a[0]}
                         onClick={props.click}
+                        className="slightlyRounded"
                         data-question-number={currentNum}
                         data-selected={multiple ?
                                         selections.indexOf(a[0]) >= 0 ? "true" : "false"
@@ -35,7 +35,7 @@ function Answers(props) {
                 );
             })
         }
-    </Fragment>
+    </div>
   );
 }
 

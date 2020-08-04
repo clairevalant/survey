@@ -8,11 +8,18 @@ function ProgressBar(props) {
         setPercentage(percentage);
     }, [props])
   
-    return(
-        <div className="progressBar" aria-hidden="true">
-            <p>{props.currentNum} / {props.numQuestions}</p>
-            <div className="progress" aria-hidden="true" style={{width: percentage + "%"}}></div>
+    return (
+      <div className="progressBar slightlyRounded" aria-hidden="true">
+        <div
+          className="progress slightlyRounded"
+          aria-hidden="true"
+          style={{ width: percentage + "%" }}
+        >
+          <p>
+            {props.currentNum} / {props.numQuestions}
+          </p>
         </div>
+      </div>
     );
 };
 

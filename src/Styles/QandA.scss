@@ -1,42 +1,36 @@
 // Question and Answers styles
 form {
-  align-items: center;
-}
-
-.card {
   width: 50%;
-  display: flex;
-  max-width: 500px;
-  flex-direction: column;
+  // display: flex;
+  max-width: 700px;
+  // flex-direction: column;
 }
 
-// Question
 .question {
-    display: flex;
-    align-items: baseline;
-    flex-direction: column;
-}
-
-.question h2 {
-  margin-top: 0;
-  font-size: 3rem;
+  margin: 0;
+  font-size: 2.5rem;
   line-height: 1.5;
-  font-family: 'Metropolis Semi', sans-serif; 
 }
 
 // Answers styles
 
-li {
-  list-style-type: none;
+.answers {
+  height: 75%;
+  flex-wrap: wrap;
+  padding-left: 2rem;
+}
+
+.instruction {
+  font-size: 1.7rem;
 }
 
 label {
-    padding: 2rem;
-    margin: 0.5em 0;
-  display: block;
+  padding: 2rem;
+  margin: 0.5em 0;
   cursor: pointer;
-  display: unset;
-  border-radius: 7px;
+  display: block;
+  width: fit-content;
+  background-color: white;
   box-shadow: 0 0 7px lightgrey;
   transition: background-color 0.3s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }

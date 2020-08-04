@@ -12,14 +12,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Survey</h1>
-      {/* if the form has been submitted, render thank you message */}
-      {submitted ? (
-        <ThankYou />
-      ) : (
-        // else render question sequence
-        <QandA submit={updateSubmit} />
-      )}
+      <div className="wrapper">
+        <h1>Survey</h1>
+        {/* if the form has been submitted, render thank you message */}
+        {submitted ? (
+          <ThankYou />
+        ) : (
+          // else render question sequence
+          <QandA submit={updateSubmit} />
+        )}
+      </div>
     </div>
   );
 }
