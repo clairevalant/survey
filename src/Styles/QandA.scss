@@ -1,9 +1,12 @@
 // Question and Answers styles
 form {
   width: 50%;
-  // display: flex;
   max-width: 700px;
-  // flex-direction: column;
+
+  @media only screen and (max-width: 1050px) {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 .question {
@@ -15,9 +18,11 @@ form {
 // Answers styles
 
 .answers {
-  height: 75%;
-  flex-wrap: wrap;
-  padding-left: 2rem;
+  height: 85%;
+  padding: 10px;
+  display: flex;
+  max-height: 400px;
+  flex-flow: column wrap;
 }
 
 .instruction {
@@ -30,13 +35,16 @@ label {
   cursor: pointer;
   display: block;
   width: fit-content;
+  pointer-events: all;
   background-color: white;
   box-shadow: 0 0 7px lightgrey;
   transition: background-color 0.3s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 label:hover,
+label:focus,
 label:active,
+label:focus-within,
 label[data-selected = true] {
   color: white;
   background-color: $accentColour;

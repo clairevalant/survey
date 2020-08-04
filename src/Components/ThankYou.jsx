@@ -3,9 +3,11 @@ import React from 'react';
 
 const ThankYou = function (props) {
     return (
-        <div className={"thankyou card"}>
-            <h2>Thank you for completing this survey!</h2>
-        </div>
+      <div className={"thankyou"}>
+        <h2>
+          Thank you for completing this survey! <span role="img" aria-label="Party party.">🥳</span>
+        </h2>
+      </div>
     );
 }
 

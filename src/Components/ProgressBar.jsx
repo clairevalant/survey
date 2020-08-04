@@ -15,9 +15,7 @@ function ProgressBar(props) {
           aria-hidden="true"
           style={{ width: percentage + "%" }}
         >
-          <p>
-            {props.currentNum} / {props.numQuestions}
-          </p>
+          <p>{props.currentNum} / {props.numQuestions}</p>
         </div>
       </div>
     );

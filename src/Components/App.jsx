@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <div className="wrapper">
-        <h1>Survey</h1>
+        <h1>Tattoo Survey</h1>
         {/* if the form has been submitted, render thank you message */}
         {submitted ? (
           <ThankYou />
